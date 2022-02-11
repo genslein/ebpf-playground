@@ -41,6 +41,10 @@ falco/deploy:
 gadget:
 	./inspektor-gadget-install.sh
 
+.PHONY: hubble-forward
+hubble-forward:
+	kubectl port-forward -n kube-system svc/hubble-ui --address 0.0.0.0 --address :: 12000:80
+
 #
 # Dashboard
 #
