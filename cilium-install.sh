@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 CILIUM_NAMESPACE=kube-system
 

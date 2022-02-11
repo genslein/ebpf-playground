@@ -4,7 +4,7 @@ CLUSTER_NAME := foo
 # Main commands
 #
 .PHONY: start
-start: start/k3d context cilium/install falco/deploy
+start: start/k3d context cilium/install gadget
 
 .PHONY: delete
 delete:
@@ -13,10 +13,6 @@ delete:
 .PHONY: context
 context:
 	kubectl config use-context k3d-${CLUSTER_NAME}
-
-.PHONY: update-deps
-update-deps:
-	helm dep update
 
 guard-%:
 	@ if [ "${${*}}" = "" ]; then \
@@ -40,6 +36,10 @@ cilium/install:
 .PHONY: falco/deploy
 falco/deploy:
 	./falco-deploy.sh
+
+.PHONY: gadget
+gadget:
+	./inspektor-gadget-install.sh
 
 #
 # Dashboard
