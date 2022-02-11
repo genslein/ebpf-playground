@@ -5,7 +5,7 @@ CILIUM_NAMESPACE=kube-system
 # from the link
 # https://sandstorm.de/de/blog/post/running-cilium-in-k3s-and-k3d-lightweight-kubernetes-on-mac-os-for-development.html
 
-helm repo add cilium https://helm.cilium.io/
+helm repo add cilium https://helm.cilium.io
 
 helm install cilium cilium/cilium --version 1.10.5 \
    --namespace kube-system \

@@ -7,7 +7,11 @@ docker exec -it k3d-foo-server-0 mount bpffs /sys/fs/bpf -t bpf
 docker exec -it k3d-foo-server-0 mount --make-shared /sys/fs/bpf
 
 # for cilium
+# bugged need to fix
+docker exec -it k3d-foo-agent-0 mount cgroupfs-mount /sys/fs/cgroup -t cgroup2
 docker exec -it k3d-foo-agent-0 mount --make-shared /sys/fs/cgroup
+
+docker exec -it k3d-foo-server-0 mount cgroupfs-mount /sys/fs/cgroup -t cgroup2
 docker exec -it k3d-foo-server-0 mount --make-shared /sys/fs/cgroup
 
 # for falco

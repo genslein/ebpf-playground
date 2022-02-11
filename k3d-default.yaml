@@ -4,7 +4,6 @@ kind: Simple
 name: foo
 servers: 1
 agents: 1
-image: docker.io/rancher/k3s:latest
 options:
   k3d:
     disableLoadbalancer: true
